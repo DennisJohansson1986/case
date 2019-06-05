@@ -1,0 +1,10 @@
+extends ../layout
+
+block content
+    br
+    br
+    p Customers
+    table.user_table
+        select.dropdown_window(id="users", name="username")
+            each user in user_list
+                option #{user.first_name} #{user.last_name}

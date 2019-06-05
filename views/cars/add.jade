@@ -1,0 +1,35 @@
+extends ../Layout
+
+block content
+    h1 Add Car
+
+    form.user_input(action='/cars', method='post')
+        label(for="reg_nr")
+            span Reg Number
+            input(type="text", name="reg_nr", id="reg_nr", required="true")
+        label(for="manufacturer")
+            span Manufacturer
+            select.dropdown_window(name="manufacturer", type="text", id="manufacturer", required="true")
+                option Polestar
+        label(for="model")
+            span Car Model
+            select.dropdown_window(name="model", type="text", id="model", required="true")
+                option V1
+                option V2
+        label(for="year")
+            span Year
+            select.dropdown_window(name="year", type="text", id="year", required="true")
+                option 2019
+                option 2020
+        label(for="color")
+            span Color
+            select.dropdown_window(name="color", type="text", id="color", required="true")
+                option White
+                option Silver
+                option Black
+        
+        label.control-label(for="submit")
+            span
+        input(type="submit", id='submit', value='Save')
+
+    

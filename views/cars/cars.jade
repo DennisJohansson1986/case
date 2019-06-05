@@ -1,0 +1,10 @@
+extends ../Layout
+
+block content
+    p Cars
+    select.dropdown_window(id="choice", name="carModel")
+        each car in cars_list
+            option #{car.model}
+    
+
+    

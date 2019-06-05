@@ -1,0 +1,21 @@
+extends ../layout
+
+block content
+    h1 Add Vendor
+    form.user_input(action='/vendors', method='post')
+        label(for="vendor_name")
+            span Vendor
+            input(type="text", name="vendor_name", id="vendor_name", required="true")
+        label(for="email")
+            span Email
+            input(type="email", name="email", id="email", required="true")
+        label(for="username")
+            span Username
+            input(type="text", name="username", id="username", required="true")
+        label(for="password")
+            span Password
+            input(type="password", name="password", id="password", required="true")
+
+        label.control-label(for="submit")
+            span
+        input(type="submit", id='submit', value='Save')

@@ -1,0 +1,38 @@
+extends ../layout
+
+block content
+    h1= title
+    p Users
+    table.user_table
+        select.dropdown_window(id="users", name="username")
+            each user in user_list
+                option #{user.first_name} #{user.last_name}
+    br
+    br
+    table.user_table
+        tr
+            th First Name
+            th Last Name
+            th Email
+            th Username
+            if userid
+                th Add as Friend
+            th Delete
+        if user_list && user_list.length > 0
+            each user in user_list
+                tr
+                    td #{user.first_name}
+                    td #{user.last_name}
+                    td #{user.email}
+                    td #{user.username}
+                    if userid
+                        td.center
+                            if userid === user.id
+                                b You
+                    td.center
+                        a(href="/users/delete?id=#{user.id}")
+                            img.icon(src="/images/delete.webp")
+                        
+        else
+            tr
+                td(colspan=6) No records

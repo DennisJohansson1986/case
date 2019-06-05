@@ -1,0 +1,40 @@
+extends layout
+
+block content
+    script.
+        var changeField = function (email) {
+            var f = document.createElement('form');
+            f.setAttribute('method', 'post');
+            f.setAttribute('action', '/dashboard/updateUser');
+
+            var i = document.createElement("input");
+            i.setAttribute('type', 'email',);
+            i.setAttribute('name', 'email');
+            i.setAttribute('value', email);
+            
+            var s = document.createElement('input');
+            s.setAttribute('type', 'submit');
+            s.setAttribute('value', 'Submit');
+
+            f.appendChild(i);
+            f.appendChild(s);
+
+            var old = document.getElementById('email');
+            old.parentNode.replaceChild(f, old);
+        }
+    br
+    h1 Welcome #{user.first_name}
+    img(src="/images/avatars/#{user.avatar}")
+    p ---------------------------------
+    p Info about you:
+        p First Name: #{user.first_name}
+        p Last Name: #{user.last_name}
+        p#email Email: #{user.email} 
+        p Username: #{user.username}
+        p Year of Birth: #{user.birthyear}
+
+        p ---------------------------------
+
+        button.edit_button(onclick="changeField('#{user.email}')") Change Email
+
+

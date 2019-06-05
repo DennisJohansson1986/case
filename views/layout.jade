@@ -1,0 +1,36 @@
+doctype html
+html
+  head
+    title= title
+    
+    link(rel='stylesheet', href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css')
+    script(src='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js')
+    link(rel='stylesheet', href='/stylesheets/style.css')
+  body
+    .layout-container
+      .row
+        .col-xs-4
+          img.logo(src="/images/car.png")
+        .col-xs-4
+          .title Car Vendors
+            if userid
+              form.searchInput(action='/search', method='post')
+                label(for='search')
+                  span Search Customers
+                  input(type='text', name='search', id='search')
+                label.control-label(for='submit')
+                  span
+                  input(type='submit', id='submit', value='Search')
+      .row
+        .col-xs-4
+          .menu-box
+          if userid
+            a.menu(href="/users") List Users
+            a.menu(href="/users/add") Add user
+            a.menu(href="/cars/add") Add Cars
+            a.menu(href="/cars") List Cars
+            a.menu(href="/dashboard") Dashboard
+            a.menu(href="/logout") Logout
+
+
+    block content
